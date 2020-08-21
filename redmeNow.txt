@@ -1,0 +1,58 @@
+10/07/2020:
+    # Se instaló el modulo: nodemailer 
+    # con la instruaccion: npm install nodemailer --save --verbose
+    # Se usa para el envio de mails
+
+12/07/2020:
+    # Se instalo el modulo: body-parser
+    # con la instruccion: npm install body-parser
+    # Se utiliza para manejar las peticiones a los distintos endpoins
+
+19/07/2020:
+    # Se instalo el modulo: bcrypt
+    # con la instruccion: npm install bcrypt
+    # Se utiliza para encriptar la pass
+
+1/08/2020:
+    # Se instalo el modulo: react-router-dom
+    # con la instruccion: npm install react-router-dom
+    # para poder manejar las rutas
+
+2/08/2020:
+    # Se instalo el modulo: react-scripts
+    # con la instruccion: npm install react-scripts
+    # Se utiliza para
+
+    # Se instalo el modulo react-spring
+    # con la instruccion: npm install react-spring
+    # Se utiliza para los efectos
+
+8/08/2020:
+    # Se instalo el modulo react-modal
+    # con la instruccion: npm install react-modal
+
+       <label htmlFor="roles">Rol de usuario</label>
+                    <select id="roles" name="rol">
+                        <option id="0" value="">Seleccionar Rol</option>
+                        <option id="1" value="orquestador">Orquestador</option>
+                        <option id="2" value="tutor">Tutor</option>
+                        <option id="3" value="jugador">Juegador</option>
+                    </select>
+
+     <Dropdown toggle={this.toggle}>
+                    <DropdownToggle caret>
+                        Dropdown
+                        </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem>Foo Action</DropdownItem>
+                        <DropdownItem>Bar Action</DropdownItem>
+                        <DropdownItem>Quo Action</DropdownItem>
+                    </DropdownMenu>
+                    </Dropdown>
+
+
+                    17/08/2020:
+    # Se instalo el modulo: react-burger-menu
+    # con la instruccion: npm install react-burger-menu --save
+    # Se utiliza para la navegacion del menu
+                   

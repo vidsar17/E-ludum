@@ -1,8 +1,9 @@
 import React from 'react';
-import {Modal, ModalHeader, ModalBody, ModalFooter, Dropdown, DropdownMenu, DropdownToggle} from 'reactstrap';
-import { Button, InputGroup, FormControl,Container,Col } from 'react-bootstrap';
+import {Modal, ModalHeader, ModalBody, ModalFooter, DropdownToggle} from 'reactstrap';
+import { Button, InputGroup, FormControl,Container,DropdownButton,Col,Dropdown,DropdownItem } from 'react-bootstrap';
 import request from 'superagent';
 import { useState } from 'react';
+
 
 class App extends React.Component {
     
@@ -139,73 +140,86 @@ class App extends React.Component {
     */ 
     
     //pedirle datos al back:
-    componentDidMount(){
-        request
-            .get('http://localhost:3302/getRol')
-            .end(function (err, res){
-                if(err){
-                    console.log('Erro al traer roles: ', err);
-                } else {
-                    console.log('Roles de la BBDD: ', res.body);
-                }
-            });
-    }
+    // componentDidMount(){
+    //     request
+    //         .get('http://localhost:3302/getRol')
+    //         .end(function (err, res){
+    //             if(err){
+    //                 console.log('Erro al traer roles: ', err);
+    //             } else {
+    //                 console.log('Roles de la BBDD: ', res.body);
+    //             }
+    //         });
+    // }
         
     render() {
+
+        const dropRol = {
+            marginBottom :"30%"
+           
+            };
+
+
+
         return (
             
             <div>
                 
-                <Container>
-                    <Col md={6}>
-                    {/* <img src={require(`${myImg}`)} /> */}
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <label>Nombre </label>
-                            <input type="text" id="nombre" onChange={this.upDateFirstName}></input>
-                        </InputGroup.Prepend>
-                    </InputGroup>
+         
+                
+                
+                <div className="modal-dialog login">
+		<div className="modal-content">
+			<div className="modal-header">
+            <div class="avatar">
+					<img src={''} alt=""></img>
+				</div>
+					
+				<h4 class="modal-title">Registro</h4>	
+               
+			</div>
+			<div className="modal-body">
+				
+					<div className="form-group">
+			
+                        <input type="email" className="form-control" id="nombre" placeholder="Nombre" required="required" onChange={this.upDateFirstName}></input>	
+					</div>
+					<div class="form-group">
+						
+                       
+                        <input type="password" className="form-control" placeholder="Apellido" id="apellido" onChange={this.upDateLastName}></input>
+					</div>  
+                    <div className="form-group">
+			
+            <input type="date" className="form-control" id="nacimiento" placeholder="Nacimiento" required="required" onChange={this.upDateDateBirth}></input>	
+        </div>
+        <div class="form-group">
+            
+           
+            <input type="password" className="form-control" placeholder="Pass" id="pass" onChange={this.upDatePass}></input>
+        </div>  
+        <div class="form-group">
+            
+           
+            <input type="email" className="form-control" placeholder="Email" id="mail" onChange={this.upDateMail}></input>
+        </div> 
 
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <label>Apellido </label>    
-                            <input type="text" id="apellido" onChange={this.upDateLastName}></input>
-                        </InputGroup.Prepend>
-                    </InputGroup>
+        <DropdownButton style={dropRol} id="dropRol" title="Seleccionar Rol">
+            <Dropdown.Item value="1">Orquestador</Dropdown.Item>
+            <Dropdown.Item value="2">Jugador</Dropdown.Item>
+            <Dropdown.Item value="3">Tutor</Dropdown.Item>
+            </DropdownButton>
 
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <label>Fecha de nacimiento </label>    
-                            <input type="date" id="nacimiento" onChange={this.upDateDateBirth}></input>
-                        </InputGroup.Prepend>
-                    </InputGroup>
+					<div className="form-group">
+						<button type="submit" onClick={this.openModal}  className="btn btn-primary btn-lg btn-block login-btn">Registrarse</button>
+                     
+					</div>
+				
+			</div>
+		
+		</div>
 
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <label>Clave </label>    
-                            <input type="password" id="pass" onChange={this.upDatePass}></input>
-                        </InputGroup.Prepend>
-                    </InputGroup>
-
-                    <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <label>Correo </label>    
-                            <input type="email" id="mail" onChange={this.upDateMail}></input>
-                        </InputGroup.Prepend>
-                    </InputGroup>
-                    <label htmlFor="roles">Rol de usuario</label>
-                    
-                    <select id="roles" name="rol" onClickCapture={this.upDateRol}>
-                        <option id="0" value="">Seleccionar Rol</option>
-                        <option id="1" value="Orquestador">Orquestador</option>
-                        <option id="2" value="Tutor">Tutor</option>
-                        <option id="3" value="Jugador">Jugador</option>
-                    </select>
-                    
-                    <Button type="submit" variant="dark" onClick={this.openModal}>Registrarse</Button>
-                    </Col>   
-
-                    <div>
+        <div>
                         <Modal isOpen={this.state.openModal}>
                             <ModalHeader>
                                 <h3>Se envio un código al correo ingresado. Ingreselo y presione enviar. Gracias!</h3>
@@ -218,9 +232,11 @@ class App extends React.Component {
                             </ModalFooter> 
                         </Modal>
                     </div>
+	</div>
 
-                </Container>
+    
                
+ 
             </div>
         )
     }
